@@ -1,5 +1,5 @@
 <template>
-	<router-link :to="{name: 'shoppingList', params: {something: data.id}}" class="sl__list__item__container">
+	<router-link :to="{name: 'shoppingList', params: {id: data.id}}" class="sl__list__item__container">
     <div class="sl__list__item__name">{{data.name}} - {{date}}</div>
     <i aria-hidden="true" class="fa fa-chevron-right"></i>
   </router-link>

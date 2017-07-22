@@ -22,7 +22,7 @@ const router = new Router({
       name: 'newList'
     },
     {
-      path: '/list/:something/',
+      path: '/list/:id',
       component: ShoppingList,
       name: 'shoppingList'
     }
