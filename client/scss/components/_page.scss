@@ -1,0 +1,10 @@
+/* Page */
+
+.page {
+  position: absolute;
+  width: 100vw;
+
+  &__body {
+    margin-top: 75px;
+  }
+}

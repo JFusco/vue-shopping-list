@@ -1,0 +1,24 @@
+/* Buttons */
+
+.btn {
+  @include font-size(14px);
+
+  border-radius: 5px;
+  padding: 0 10px;
+  text-align: center;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &--clear {
+    border: 0;
+    background: transparent;
+    color: #F7F9F9;
+    border-radius: 0;
+  }
+
+  span {
+    @include font-size(20px);
+  }
+}
