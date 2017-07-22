@@ -16,7 +16,7 @@
     "email": "jfusco311@gmail.com"
   },
   "scripts": {
-    "version": "npm run build && git add .",
+    "version": "git add .",
     "postversion": "git push origin master --tags",
     "test": "karma start --single-run --no-auto-watch",
     "lint": "eslint --fix --color --debug --ignore-path .eslintignore ./src/component/js/*",
