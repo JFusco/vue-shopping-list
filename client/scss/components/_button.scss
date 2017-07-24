@@ -6,19 +6,27 @@
   border-radius: 5px;
   padding: 0 10px;
   text-align: center;
+  border: 0;
+  transition: background 0.3s ease;
 
   &:focus {
     outline: 0;
   }
 
+  &--focus {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
   &--clear {
-    border: 0;
-    background: transparent;
     color: #F7F9F9;
+    background: none;
     border-radius: 0;
   }
 
-  span {
-    @include font-size(20px);
+  &--primary {
+    color: #FFF;
+    background: #8DD1BE;
+    width: 100%;
+    padding: 12px 0;
   }
 }

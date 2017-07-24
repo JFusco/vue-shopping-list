@@ -47,7 +47,8 @@
   "~scss/animations",
   "~scss/components/page",
   "~scss/components/link",
-  "~scss/components/button";
+  "~scss/components/button",
+  "~scss/components/input";
 
   html,
   body {

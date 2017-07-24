@@ -1,0 +1,49 @@
+/* Input */
+
+input {
+  @include font-size(16px);
+
+  font-family: $main-font;
+}
+
+input[type="text"] {
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid #D4D3D1;
+  transition: border-bottom-color 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 0;
+
+  &:focus {
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid #8DD1BE;
+  }
+}
+
+.input {
+  &__label {
+    @include font-size(20px);
+
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  &__group {
+    position: relative;
+
+    .fa {
+      @include font-size(20px);
+
+      position: absolute;
+      right: 15px;
+      bottom: 10px;
+      color: #8DD1BE;
+    }
+
+    input[type="text"] {
+      padding-right: 40px;
+    }
+  }
+}

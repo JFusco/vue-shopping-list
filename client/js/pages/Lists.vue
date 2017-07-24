@@ -63,7 +63,7 @@
   "~scss/mixins";
 
   .fa {
-  @include font-size(25px);
+    @include font-size(25px);
 
     line-height: 75px;
   }

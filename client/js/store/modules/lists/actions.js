@@ -7,7 +7,7 @@ const actions = {
     commit(type.FETCH_LISTS)
     commit(SHOW_LOADER)
 
-    Vue.http.get('https://private-85f0f-shoppinglist7.apiary-mock.com/api/list')
+    return Vue.http.get('https://private-85f0f-shoppinglist7.apiary-mock.com/api/list')
       .then(resp => {
         commit(type.FETCH_LISTS_SUCCESS, {
           payload: resp.body
@@ -15,6 +15,26 @@ const actions = {
       })
       .catch(error => {
         commit(type.FETCH_LISTS_ERROR, {
+          error
+        })
+      })
+      .then(() => {
+        commit(HIDE_LOADER)
+      })
+  },
+
+  saveList({ commit }, data) {
+    commit(type.POST_LIST)
+    commit(SHOW_LOADER)
+
+    return Vue.http.post('https://private-85f0f-shoppinglist7.apiary-mock.com/api/list', data)
+      .then(resp => {
+        commit(type.POST_LIST_SUCCESS, {
+          payload: resp.body
+        })
+      })
+      .catch(error => {
+        commit(type.POST_LIST_ERROR, {
           error
         })
       })

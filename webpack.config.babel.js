@@ -11,13 +11,15 @@ const paths = {
 
 module.exports = {
 	devtool: '#eval-source-map',
-	entry: './client/js/index.js',
+	entry: ['webpack-hot-middleware/client', './client/js/index.js'],
 	output: {
     path: paths.output,
 		filename: '[name]-[hash].[id].bundle.js',
     publicPath: '/'
 	},
 	plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: 'common-[chunkhash].[id].js',
@@ -70,7 +72,13 @@ module.exports = {
 		}
 	},
   devServer: {
+    publicPath: '/',
     historyApiFallback: true,
-    contentBase: path.join(__dirname, './client')
+    noInfo: true,
+    log: false,
+    reload: true,
+    stats: {
+      colors: true
+    }
   }
 };

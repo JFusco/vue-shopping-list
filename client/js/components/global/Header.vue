@@ -26,7 +26,7 @@
   })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "~scss/mixins";
 
   .sl {
@@ -73,7 +73,6 @@
 
       .btn,
       a {
-        border-left: 1px solid rgba(247, 249, 249, 0.4);
         margin-left: 15px;
       }
     }
@@ -83,7 +82,6 @@
 
       .btn,
       a {
-        border-right: 1px solid rgba(247, 249, 249,  0.4);
         margin-right: 15px;
       }
     }
