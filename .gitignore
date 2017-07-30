@@ -3,3 +3,4 @@
 /server/data/db
 /dist
 .env
+*.DS_Store
