@@ -7,7 +7,7 @@ const actions = {
     commit(type.FETCH_LISTS)
     commit(SHOW_LOADER)
 
-    return Vue.http.get('https://private-85f0f-shoppinglist7.apiary-mock.com/api/list')
+    return Vue.http.get('/api/list')
       .then(resp => {
         commit(type.FETCH_LISTS_SUCCESS, {
           payload: resp.body
@@ -27,7 +27,7 @@ const actions = {
     commit(type.POST_LIST)
     commit(SHOW_LOADER)
 
-    return Vue.http.post('https://private-85f0f-shoppinglist7.apiary-mock.com/api/list', data)
+    return Vue.http.post('/api/list', data)
       .then(resp => {
         commit(type.POST_LIST_SUCCESS, {
           payload: resp.body

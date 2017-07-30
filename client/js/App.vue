@@ -1,6 +1,6 @@
 <template>
   <div role="main">
-    <transition :name="transitionName" v-on:after-enter="afterEnter">
+    <transition :name="transitionName">
       <router-view></router-view>
     </transition>
   </div>
@@ -27,12 +27,6 @@
         const fromDepth = from.path.split('/').filter(el => { return el.length !== 0 })
 
         this.transitionName = toDepth < fromDepth ? 'slideRight' : 'slideLeft'
-      }
-    },
-
-    methods: {
-      afterEnter(el){
-        //console.log('hey', el);
       }
     }
   }

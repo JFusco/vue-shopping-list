@@ -1,3 +1,5 @@
 /.idea
 /node_modules
-/server
+/server/data/db
+/dist
+.env

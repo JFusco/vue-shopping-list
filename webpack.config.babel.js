@@ -9,36 +9,61 @@ const paths = {
 	src: './client/js'
 };
 
+let htmlConfig = {
+  template: path.resolve(__dirname, './client/index.html')
+};
+
+if(NODE_ENV === 'production'){
+  htmlConfig = {
+    ...htmlConfig,
+    minify: {
+      collapseWhitespace: true
+    }
+  }
+}
+
+let plugins = [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'common',
+    filename: 'common-[chunkhash].[id].js',
+    minChunks: ({ resource }) => /node_modules/.test(resource)
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'manifest',
+    filename: 'manifest-[hash].[id].js'
+  }),
+  new HtmlWebpackPlugin(htmlConfig),
+  new webpack.DefinePlugin({
+    '__DEV__': NODE_ENV === 'development',
+    'process.env': {
+      'NODE_ENV': JSON.stringify(NODE_ENV || 'development')
+    }
+  })
+];
+
+if (NODE_ENV !== 'production'){
+  plugins = [
+    ...plugins,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
+}
+
+const entry = ['./client/js/index.js'];
+
+if(NODE_ENV !== 'production'){
+  entry.unshift('webpack-hot-middleware/client');
+}
+
 module.exports = {
-	devtool: '#eval-source-map',
-	entry: ['webpack-hot-middleware/client', './client/js/index.js'],
+  devtool: NODE_ENV === 'production' ? '#eval' : '#eval-source-map',
+	entry,
 	output: {
     path: paths.output,
 		filename: '[name]-[hash].[id].bundle.js',
     publicPath: '/'
 	},
-	plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-		new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      filename: 'common-[chunkhash].[id].js',
-      minChunks: ({ resource }) => /node_modules/.test(resource)
-		}),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      filename: 'manifest-[hash].[id].js'
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './client/index.html')
-    }),
-    new webpack.DefinePlugin({
-      '__DEV__': process.env.NODE_ENV === 'development',
-      'process.env': {
-        'NODE_ENV': JSON.stringify(NODE_ENV || 'development')
-      }
-    })
-	],
+	plugins,
 	module: {
 		rules: [
 			{

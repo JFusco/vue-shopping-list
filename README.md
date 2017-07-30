@@ -10,6 +10,7 @@ The following tools are required to get this running.
 ### Dev tools
 * [Node](https://nodejs.org/en/) `>=7.7.0 <=8.1.x` *~NPM will install automatically*
 * NPM `~5.3.x`
+* [MongoDB](https://www.mongodb.com/download-center#community) - shell version `3.4.3`
 
 ## Installation
 ### Install Node
@@ -22,10 +23,11 @@ This will install `npm` automatically.
 $ npm install
 ```
 
+### Install MongoDB
+
 ### Run project
 ```sh
-$ npm start
+$ npm run dev
 ```
-**Your primary browser will automatically open at localhost:8080**
 
 [npm-version-image]: https://img.shields.io/npm/v/npm.svg?maxAge=2592000
