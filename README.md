@@ -4,6 +4,8 @@
 
 This repository was created to demonstrate a mobile shopping list application made in Vue, Vuex, Vue Router and some custom Animate.css stuff :) ... The plan is to use Web Sockets using "ws" or "socket.io" to get some real time feedback when adding or crossing off items in a grocery list.
 
+The set up instructions assume you are on macOS.
+
 ## Requirements
 The following tools are required to get this running.
 
@@ -39,7 +41,7 @@ Add mongo to your path - open up your bash profile and add this:
 `export PATH=${PATH}:/Users/{username}/mongodb/bin`
 
 ### Run mongo
-- Create a `db` folder inside or `server/data`
+- Create a `db` folder inside `server/data`
 - Run mongo with this command from the root of the project:
 
 `mongod --dbpath ./server/data/db`
