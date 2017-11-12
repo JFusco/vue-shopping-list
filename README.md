@@ -55,5 +55,6 @@ Add mongo to your path - open up your bash profile and add this:
 ```sh
 $ npm run dev
 ```
+Open up your browser and navigate to [localhost:3000](localhost:3000)
 
 [npm-version-image]: https://img.shields.io/npm/v/npm.svg?maxAge=2592000
