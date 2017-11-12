@@ -29,7 +29,7 @@ $ npm install
 - Fill in the DB_NAME
 
 ### Install MongoDB
-Doandload the `tgz` file
+Download the `tgz` file
 - https://www.mongodb.com/download-center#community
 - Unzip the files and put them in /Users/{username}/
 - Rename the folder to `mongodb`
@@ -47,7 +47,7 @@ Add mongo to your path - open up your bash profile and add this:
 ### Import data
 - Run this at the root of the project
 
-`mongorestore --gzip ./server/data/dump/db={most recent date}`
+`mongorestore --gzip ./server/data/dump/db-{most recent date}`
 
 ### Run project
 ```sh
