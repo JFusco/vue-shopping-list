@@ -23,6 +23,11 @@ This will install `npm` automatically.
 $ npm install
 ```
 
+### Create .env file
+- Copy the contents of `.env.example`
+- Create a file called `.env` in the root of the project and paste contents of `.env.exmaple`
+- Fill in the DB_NAME
+
 ### Install MongoDB
 Doandload the `tgz` file
 - https://www.mongodb.com/download-center#community
