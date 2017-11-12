@@ -5,8 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const { NODE_ENV } = process.env;
 
 const paths = {
-	output: path.join(__dirname, '/build'),
-	src: './client/js'
+  output: path.join(__dirname, '/build'),
+  src: './client/js'
 };
 
 let htmlConfig = {
@@ -55,47 +55,47 @@ if(NODE_ENV !== 'production'){
   entry.unshift('webpack-hot-middleware/client');
 }
 
-module.exports = {
-  devtool: NODE_ENV === 'production' ? '#eval' : '#eval-source-map',
-	entry,
-	output: {
+export default {
+  devtool: NODE_ENV === 'production' ? 'eval' : 'eval-source-map',
+  entry,
+  output: {
     path: paths.output,
-		filename: '[name]-[hash].[id].bundle.js',
+    filename: '[name]-[hash].[id].bundle.js',
     publicPath: '/'
-	},
-	plugins,
-	module: {
-		rules: [
-			{
-				enforce: 'pre',
-				test: /.vue$/,
-				loader: 'eslint-loader',
-				exclude: /node_modules/
-			},
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
-			},
-			{
-				test: /\.js$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
-			},
-			{
-				test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'file-loader',
-				options: {
-					name: '[name].[ext]?[hash]'
-				}
-			}
-		]
-	},
-	resolve: {
+  },
+  plugins,
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        test: /.vue$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
+    ]
+  },
+  resolve: {
     extensions: ['.js', '.vue', '.scss'],
-		alias: {
-			'scss': path.resolve(__dirname, 'client/scss')
-		}
-	},
+    alias: {
+      'scss': path.resolve(__dirname, 'client/scss')
+    }
+  },
   devServer: {
     publicPath: '/',
     historyApiFallback: true,

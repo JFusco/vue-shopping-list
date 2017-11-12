@@ -18,11 +18,14 @@
   "scripts": {
     "version": "git add .",
     "postversion": "git push origin master --tags",
+
     "test": "karma start --single-run --no-auto-watch",
     "lint": "eslint --fix --color --debug --ignore-path .eslintignore ./src/component/js/*",
     "dev": "nodemon --exec babel-node server/lib/index.js --ignore client --throw-deprecation",
+
     "build": "babel server/**/*.js -d dist",
     "serve": "NODE_ENV=production node dist/server/lib/index.js",
+
     "dump": "mongodump --gzip --out server/data/backup/db-`date '+%Y-%m-%d_%H:%M:%S'`"
   },
   "dependencies": {
