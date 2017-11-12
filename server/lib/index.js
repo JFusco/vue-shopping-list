@@ -2,7 +2,7 @@ import express from 'express';
 import { resolve } from 'path';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import List from '../model/list-model';
+import '../model/list-model';
 import routes from '../routes/index';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -26,7 +26,7 @@ app.use('/api', routes);
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${HOST}/${DB_NAME}`);
 
-if(NODE_ENV !== 'production'){
+if (NODE_ENV !== 'production'){
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -42,7 +42,7 @@ if(NODE_ENV !== 'production'){
     res.write(middleware.fileSystem.readFileSync(resolve(__dirname, '../../build/index.html')));
     res.end();
   });
-}else{
+} else {
   app.get('*', (req, res) => {
     res.sendFile(resolve(__dirname, '../../client/index.html'));
   });

@@ -1,5 +1,5 @@
 <template>
-	<router-link :to="{name: 'shoppingList', params: {id: data._id}}" class="sl__list__item__container">
+  <router-link :to="{name: 'shoppingList', params: {id: data._id}}" class="sl__list__item__container">
     <div class="sl__list__item__name">{{data.name}} - {{date}}</div>
     <i aria-hidden="true" class="fa fa-chevron-right"></i>
   </router-link>
@@ -21,7 +21,7 @@
 
     computed: {
       date(){
-        return moment(this.data.date).format('MMM DD, YYYY')
+        return moment(this.data.createdDate).format('MMM DD, YYYY')
       }
     }
   }

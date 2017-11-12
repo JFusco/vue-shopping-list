@@ -2,14 +2,14 @@
 
 ![npm][npm-version-image]
 
-This repository was created to demonstrate a mobile shopping list application made in Vue, Vuex, Vue Router and some custom Animate.css stuff :) ... The plan is to use Node/Express and Web Sockets using "ws" or "socket.io" to get some real time feedback when adding or crossing off items in a grocery list. Currently the application is hitting Apiary until I get Node up and running with Mongo.
+This repository was created to demonstrate a mobile shopping list application made in Vue, Vuex, Vue Router and some custom Animate.css stuff :) ... The plan is to use Web Sockets using "ws" or "socket.io" to get some real time feedback when adding or crossing off items in a grocery list.
 
 ## Requirements
 The following tools are required to get this running.
 
 ### Dev tools
 * [Node](https://nodejs.org/en/) `>=7.7.0 <=8.1.x` *~NPM will install automatically*
-* NPM `~5.3.x`
+* babel-cli `6.5.3`
 * [MongoDB](https://www.mongodb.com/download-center#community) - shell version `3.4.3`
 
 ## Installation
@@ -24,6 +24,25 @@ $ npm install
 ```
 
 ### Install MongoDB
+Doandload the `tgz` file
+- https://www.mongodb.com/download-center#community
+- Unzip the files and put them in /Users/{username}/
+- Rename the folder to `mongodb`
+
+Add mongo to your path - open up your bash profile and add this:
+
+`export PATH=${PATH}:/Users/{username}/mongodb/bin`
+
+### Run mongo
+- Create a `db` folder inside or `server/data`
+- Run mongo with this command from the root of the project:
+
+`mongod --dbpath ./server/data/db`
+
+### Import data
+- Run this at the root of the project
+
+`mongorestore --gzip ./server/data/dump/db={most recent date}`
 
 ### Run project
 ```sh

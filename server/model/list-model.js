@@ -2,13 +2,13 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-var ListSchema = new Schema({
+const ListSchema = new Schema({
   name: {
     type: String
   },
   createdDate: {
     type: Date,
-    default: Date.now
+    'default': Date.now
   }
 });
 

@@ -55,7 +55,7 @@ if(NODE_ENV !== 'production'){
   entry.unshift('webpack-hot-middleware/client');
 }
 
-export default {
+module.exports = {
   devtool: NODE_ENV === 'production' ? 'eval' : 'eval-source-map',
   entry,
   output: {
