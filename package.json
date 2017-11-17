@@ -18,11 +18,9 @@
   "scripts": {
     "version": "git add .",
     "postversion": "git push origin master --tags",
-
     "dev": "nodemon --exec babel-node server/lib/index.js --ignore client --throw-deprecation",
     "build": "babel server/**/*.js -d dist",
     "serve": "NODE_ENV=production node dist/server/lib/index.js",
-
     "dump": "mongodump --gzip --out server/data/dump/db-`date '+%Y-%m-%d_%H:%M:%S'`"
   },
   "dependencies": {
@@ -72,7 +70,7 @@
     "phantomjs-prebuilt": "^2.1.14",
     "sass-loader": "^6.0.6",
     "sinon": "^2.0.0",
-    "vue-eslint-parser": "^1.0.0",
+    "vue-eslint-parser": "^2.0.1-beta.2",
     "vue-loader": "^13.0.2",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^3.4.1",
