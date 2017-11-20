@@ -22,3 +22,16 @@ export const createListItem = (req, res) => {
     });
   });
 };
+
+export const deleteListItem = (req, res) => {
+  List.findByIdAndRemove(req.query.id, (err, item) => {
+    if (err) res.send(err);
+
+    const response = {
+      message: 'Success',
+      id: item._id
+    };
+
+    res.status(200).send(response);
+  });
+};

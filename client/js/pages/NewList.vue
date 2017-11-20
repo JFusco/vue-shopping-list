@@ -53,9 +53,9 @@
         this.saveList({
           name: this.listName
         }).then(() => {
-          if (this.lists.data.success){
-            this.$router.push({ name: 'lists' })
-          }
+          this.$router.push({ name: 'lists' })
+        }).catch(err => {
+          console.log('ERROR', err);
         })
       }
     },

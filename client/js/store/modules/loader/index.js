@@ -9,7 +9,6 @@ const mutations = {
 	[type.SHOW_LOADER](state) {
 		state.show = true
 	},
-
 	[type.HIDE_LOADER](state) {
 		state.show = false
 	}

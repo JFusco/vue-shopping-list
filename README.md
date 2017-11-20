@@ -2,7 +2,7 @@
 
 ![npm][npm-version-image]
 
-This repository was created to demonstrate a mobile shopping list application made in Vue, Vuex, Vue Router and some custom Animate.css stuff :) ... The plan is to use Web Sockets using "ws" or "socket.io" to get some real time feedback when adding or crossing off items in a grocery list.
+This repository was created to demonstrate a mobile shopping list application made in Vue, Vuex, Vue Router and some custom Animate.css stuff :) ... The project uses socket.io to get real time feedback when adding or crossing off items in a grocery list as well as adding/removing categories.
 
 The set up instructions assume you are on macOS.
 

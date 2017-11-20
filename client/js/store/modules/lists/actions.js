@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import * as type from './types'
+import io from 'socket.io-client'
+import store from '../../../store/index'
 import { SHOW_LOADER, HIDE_LOADER } from '../loader/types'
+
+const socket = io()
 
 const actions = {
   getLists({ commit }) {
@@ -29,9 +33,8 @@ const actions = {
 
     return Vue.http.post('/api/list', data)
       .then(resp => {
-        commit(type.POST_LIST_SUCCESS, {
-          payload: resp.body
-        })
+
+        socket.emit('payload handle', resp.body)
       })
       .catch(error => {
         commit(type.POST_LIST_ERROR, {
@@ -41,7 +44,33 @@ const actions = {
       .then(() => {
         commit(HIDE_LOADER)
       })
+  },
+
+  deleteList({ commit }, id) {
+    commit(type.DELETE_LIST)
+
+    return Vue.http.delete('/api/list', {
+      params: {
+        id
+      }
+    })
+      .then(() => {
+        commit(type.DELETE_LIST_SUCCESS, {
+          id
+        })
+      })
+      .catch(error => {
+        commit(type.DELETE_LIST_ERROR, {
+          error
+        })
+      })
   }
 }
+
+socket.on('payload handle', payload => {
+  store.commit(type.POST_LIST_SUCCESS, {
+    payload: payload._doc
+  })
+})
 
 export default actions;
